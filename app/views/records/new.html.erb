@@ -62,6 +62,7 @@
             <div class="form-group">
                 <%= form.label :gbl_resourceClass_sm, t('fields.gbl_resourceClass_sm.label'), class: 'required' %>
                 <%= link_to raw('Info &nearr;'), t('fields.gbl_resourceClass_sm.url'), target: '_blank' %>
+                <strong>Not yet implemented</strong> &#128556;
                 <%= form.select :gbl_resourceClass_sm, ['Collections','Datasets','Imagery','Maps','Web services','Websites','Other'], {}, { :multiple => true, :size => 5, class: 'form-control' } %>
             </div>
             <div class="form-group">
@@ -203,12 +204,13 @@
             <div class="form-group">
                 <%= form.label :dct_references_s, t('fields.dct_references_s.label'), class: 'suggested' %>
                 <%= link_to raw('Info &nearr;'), t('fields.dct_references_s.url'), target: '_blank' %>
+                <strong>Not yet implemented</strong> &#128556;
                 <%= form.text_area :dct_references_s, class: 'form-control' %>
             </div>
             <div class="form-group">
                 <%= form.label :gbl_wxsIdentifier_s, t('fields.gbl_wxsIdentifier_s.label') %>
                 <%= link_to raw('Info &nearr;'), t('fields.gbl_wxsIdentifier_s.url'), target: '_blank' %>
-                <%= form.text_area :gbl_wxsIdentifier_s, class: 'form-control' %>
+                <%= form.text_field :gbl_wxsIdentifier_s, class: 'form-control' %>
             </div>
             <h3>Admin</h3>
             <div class="form-group">
