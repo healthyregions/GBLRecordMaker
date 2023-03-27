@@ -1,0 +1,159 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  fields:
+    dct_title_s:
+      label: Title (R)
+      url: https://opengeometadata.org/docs/ogm-aardvark/title
+    dct_alternative_sm:
+      label: Alternative Title +
+      url: https://opengeometadata.org/docs/ogm-aardvark/alternative-title
+    dct_description_sm:
+      label: Description (S) +
+      url: https://opengeometadata.org/docs/ogm-aardvark/description
+    dct_language_sm: 
+      label: Language +
+      url: https://opengeometadata.org/docs/ogm-aardvark/language
+    gbl_displayNote_sm: 
+      label: Display Note +
+      url: https://opengeometadata.org/docs/ogm-aardvark/display-note
+    dct_creator_sm: 
+      label: Creator (S) +
+      url: https://opengeometadata.org/docs/ogm-aardvark/creator
+    dct_publisher_sm: 
+      label: Publisher (S) +
+      url: https://opengeometadata.org/docs/ogm-aardvark/publisher
+    schema_provider_s: 
+      label: Provider (S) +
+      url: https://opengeometadata.org/docs/ogm-aardvark/provider
+    gbl_resourceClass_sm:
+      label: Resource Class (R) +
+      url: https://opengeometadata.org/docs/ogm-aardvark/resource-class
+    gbl_resourceType_sm: 
+      label: Resource Type (S) +
+      url: https://opengeometadata.org/docs/ogm-aardvark/resource-type
+    dct_subject_sm: 
+      label: Subject +
+      url: https://opengeometadata.org/docs/ogm-aardvark/subject
+    dcat_theme_sm: 
+      label: Theme +
+      url: https://opengeometadata.org/docs/ogm-aardvark/theme
+    dcat_keyword_sm: 
+      label: Keyword +
+      url: https://opengeometadata.org/docs/ogm-aardvark/keyword
+    dct_temporal_sm: 
+      label: Temporal Coverage (S) +
+      url: https://opengeometadata.org/docs/ogm-aardvark/temporal-coverage
+    dct_issued_s: 
+      label: Date Issued
+      url: https://opengeometadata.org/docs/ogm-aardvark/date-issued
+    gbl_indexYear_im:
+      label: Index Year (S) +
+      url: https://opengeometadata.org/docs/ogm-aardvark/index-year
+    gbl_dateRange_drsim: 
+      label: Date Range +
+      url: https://opengeometadata.org/docs/ogm-aardvark/date-range
+    dct_spatial_sm: 
+      label: Spatial Coverage (S) +
+      url: https://opengeometadata.org/docs/ogm-aardvark/spatial-coverage
+    locn_geometry: 
+      label: Geometry (S)
+      url: https://opengeometadata.org/docs/ogm-aardvark/geometry
+    dcat_bbox: 
+      label: Bounding Box (S)
+      url: https://opengeometadata.org/docs/ogm-aardvark/bounding-box
+    dcat_centroid: 
+      label: Centroid
+      url: https://opengeometadata.org/docs/ogm-aardvark/centroid
+    gbl_georeferenced_b: 
+      label: Georeferenced?
+      url: https://opengeometadata.org/docs/ogm-aardvark/georeferenced
+    dct_relation_sm: 
+      label: Relation +
+      url: https://opengeometadata.org/docs/ogm-aardvark/relation
+    pcdm_memberOf_sm: 
+      label: Member Of +
+      url: https://opengeometadata.org/docs/ogm-aardvark/member-of
+    dct_isPartOf_sm: 
+      label: Is Part Of +
+      url: https://opengeometadata.org/docs/ogm-aardvark/is-part-of
+    dct_source_sm: 
+      label: Source +
+      url: https://opengeometadata.org/docs/ogm-aardvark/source
+    dct_isVersionOf_sm: 
+      label: Is Version Of +
+      url: https://opengeometadata.org/docs/ogm-aardvark/is-version-of
+    dct_replaces_sm: 
+      label: Replaces +
+      url: https://opengeometadata.org/docs/ogm-aardvark/replaces
+    dct_isReplacedBy_sm: 
+      label: Is Replaced By +
+      url: https://opengeometadata.org/docs/ogm-aardvark/is-replaced-by
+    dct_rights_sm: 
+      label: Rights (S) +
+      url: https://opengeometadata.org/docs/ogm-aardvark/rights
+    dct_rightsHolder_sm: 
+      label: Rights Holder +
+      url: https://opengeometadata.org/docs/ogm-aardvark/rights-holder
+    dct_license_sm: 
+      label: License +
+      url: https://opengeometadata.org/docs/ogm-aardvark/license
+    dct_accessRights_s: 
+      label: Access Rights (R)
+      url: https://opengeometadata.org/docs/ogm-aardvark/access-rights
+    dct_format_s:
+      label: Format (C)
+      url: https://opengeometadata.org/docs/ogm-aardvark/format
+    gbl_fileSize_s:
+      label: File Size
+      url: https://opengeometadata.org/docs/ogm-aardvark/file-size
+    dct_references_s:
+      label: References (S)
+      url: https://opengeometadata.org/docs/ogm-aardvark/references
+    gbl_wxsIdentifier_s:
+      label: WxS Identifier
+      url: https://opengeometadata.org/docs/ogm-aardvark/wxs-identifier
+    gbl_id:
+      label: Id (R)
+      url: https://opengeometadata.org/docs/ogm-aardvark/id
+    dct_identifier_sm:
+      label: Identifier (S)
+      url: https://opengeometadata.org/docs/ogm-aardvark/identifier
+    gbl_mdModified_dt:
+      label: Modified (R)
+      url: https://opengeometadata.org/docs/ogm-aardvark/modified
+    gbl_mdVersion_s:
+      label: Metadata Version (R)
+      url: https://opengeometadata.org/docs/ogm-aardvark/metadata-version
+    gbl_suppressed_b:
+      label: Suppressed?
+      url: https://opengeometadata.org/docs/ogm-aardvark/suppressed

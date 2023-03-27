@@ -1,0 +1,54 @@
+<div class="main">
+  <div class="content" style="width:100%;">
+    <h1>Places metadata test area</h1>
+    <p>This app is meant to serve as a light-weight bridge between our draft metadata and a fully functional GeoBlacklight installation.</p>
+    <p>We can create and edit metadata records here, and then paste the automatically generated JSON into <a href="http://3.139.235.189:8983/solr/#/blacklight-core/documents">
+    SOLR</a>, the search backend of GeoBlacklight. Then we can find the record in our <a href="http://3.141.21.37:3000">development GeoBlacklight installation</a> and see what it looks like/how it behaves in the default search interface. This should give us a way to quickly test out different structures for our records.</p>
+    <ol>
+      <li>Create or edit a record</li>
+      <li>Use <code>Get JSON</code> to get a SOLR document</li>
+      <li>Copy the raw JSON (exact details may depend on your browser).</li>
+      <li>Paste into the <a href="http://3.139.235.189:8983/solr/#/blacklight-core/documents">
+          SOLR backend</a> and click <code>Submit</code></li>
+      <li>Find and view the record in <a href="http://3.141.21.37:3000">GeoBlacklight</a></li>
+    </ol>
+    <%= link_to raw('Create new record &rarr;'), new_record_path %>
+    <% if @records.present? %>
+      <div class="row justify-content-center">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Id</th>
+              <th scope="col" colspan="2">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @records.each do |record| %>
+              <tr>
+                <td><%= record.dct_title_s %></td>
+                <td><%= record.gbl_id %></td>
+                <!-- <td><%= link_to 'Show', record_path(record.id) %></td> -->
+                <td><%= link_to 'Edit', edit_record_path(record.id) %></td>
+                <td><%= link_to 'Get JSON', record_path(record.id)+".json" %></td>
+                <!-- <td><%= link_to 'Delete',
+                    record_path(record.id),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %>
+                </td> -->
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% else %>
+      <div class="p-3 mb-2 bg-light text-dark">
+        <span class="text-info font-weight-bold">Welcome! </span>
+        Create your first record
+      </div>
+    <% end %>
+  </div>
+  <div class="side-panel">
+    <%= render('records/side-panel-data-entry') %>
+  </div>
+</div>
