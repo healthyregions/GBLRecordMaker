@@ -11,9 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_21_150045) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "records", force: :cascade do |t|
     t.string "dct_title_s", null: false
     t.string "dct_alternative_sm"
@@ -50,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_150045) do
     t.string "dct_accessRights_s"
     t.string "dct_format_s"
     t.string "gbl_fileSize_s"
-    t.json "dct_references_s"
+    t.string "dct_references_s"
     t.string "gbl_wxsIdentifier_s"
     t.string "gbl_id"
     t.string "dct_identifier_sm"

@@ -46,7 +46,7 @@ class CreateRecords < ActiveRecord::Migration[7.0]
       t.string 'gbl_fileSize_s'
       # Links
       # dct_references_s --> output must be serialized to string
-      t.json 'dct_references_s' 
+      t.string 'dct_references_s' 
       t.string 'gbl_wxsIdentifier_s'
       # Identifiers
       t.string 'gbl_id'#, null: false
