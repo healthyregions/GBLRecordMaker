@@ -6,228 +6,49 @@
         </div>
         <%= form_with(model: @record, local: true) do |form| %>
             <h3>Identifiers</h3>
-            <div class="form-group">
-                <%= form.label :gbl_id, t('fields.gbl_id.label'), class: 'required' %>
-                <%= link_to raw('Info &nearr;'), t('fields.gbl_id.url'), target: '_blank' %>
-                <%= form.text_field :gbl_id, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_identifier_sm, t('fields.dct_identifier_sm.label'), class: 'suggested' %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_identifier_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_identifier_sm, class: 'form-control' %>
-            </div>
+            <% @fields_by_group[:identifiers].each do |field| %>
+                <%= render :partial => 'universal_widget', :locals => {"field": field, "form": form} %>
+            <% end %>
             <h3>Descriptive</h3>
-            <div class="form-group">
-                <%= form.label :dct_title_s, t('fields.dct_title_s.label'), class: 'required' %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_title_s.url'), target: '_blank' %>
-                <%= form.text_field :dct_title_s, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_alternative_sm, t('fields.dct_alternative_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_alternative_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_alternative_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_description_sm, t('fields.dct_description_sm.label'), class: 'suggested' %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_description_sm.url'), target: '_blank' %>
-                <%= form.text_area :dct_description_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_language_sm, t('fields.dct_language_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_language_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_language_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :gbl_displayNote_sm, t('fields.gbl_displayNote_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.gbl_displayNote_sm.url'), target: '_blank' %>
-                <%= form.text_field :gbl_displayNote_sm, class: 'form-control' %>
-            </div>
+            <% @fields_by_group[:descriptive].each do |field| %>
+                <%= render :partial => 'universal_widget', :locals => {"field": field, "form": form} %>
+            <% end %>
             <h3>Credits</h3>
-            <div class="form-group">
-                <%= form.label :dct_creator_sm, t('fields.dct_creator_sm.label'), class: 'suggested' %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_creator_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_creator_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_publisher_sm, t('fields.dct_publisher_sm.label'), class: 'suggested' %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_publisher_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_publisher_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :schema_provider_s, t('fields.schema_provider_s.label'), class: 'suggested' %>
-                <%= link_to raw('Info &nearr;'), t('fields.schema_provider_s.url'), target: '_blank' %>
-                <%= form.text_field :schema_provider_s, class: 'form-control' %>
-            </div>
+            <% @fields_by_group[:credits].each do |field| %>
+                <%= render :partial => 'universal_widget', :locals => {"field": field, "form": form} %>
+            <% end %>
             <h3>Categories</h3>
-            <div class="form-group">
-                <%= form.label :gbl_resourceClass_sm, t('fields.gbl_resourceClass_sm.label'), class: 'required' %>
-                <%= link_to raw('Info &nearr;'), t('fields.gbl_resourceClass_sm.url'), target: '_blank' %>
-                <strong>Not yet implemented</strong> &#128556;
-                <%= form.select :gbl_resourceClass_sm, ['Collections','Datasets','Imagery','Maps','Web services','Websites','Other'], {}, { :multiple => true, :size => 5, class: 'form-control' } %>
-            </div>
-            <div class="form-group">
-                <%= form.label :gbl_resourceType_sm, t('fields.gbl_resourceType_sm.label'), class: 'suggested' %>
-                <%= link_to raw('Info &nearr;'), t('fields.gbl_resourceType_sm.url'), target: '_blank' %>
-                <%= form.text_field :gbl_resourceType_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_subject_sm, t('fields.dct_subject_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_subject_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_subject_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dcat_theme_sm, t('fields.dcat_theme_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dcat_theme_sm.url'), target: '_blank' %>
-                <%= form.text_field :dcat_theme_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dcat_keyword_sm, t('fields.dcat_keyword_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dcat_keyword_sm.url'), target: '_blank' %>
-                <%= form.text_field :dcat_keyword_sm, class: 'form-control' %>
-            </div>
+            <% @fields_by_group[:categories].each do |field| %>
+                <%= render :partial => 'universal_widget', :locals => {"field": field, "form": form} %>
+            <% end %>
             <h3>Temporal</h3>
-            <div class="form-group">
-                <%= form.label :dct_temporal_sm, t('fields.dct_temporal_sm.label'), class: 'suggested' %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_temporal_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_temporal_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_issued_s, t('fields.dct_issued_s.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_issued_s.url'), target: '_blank' %>
-                <%= form.text_field :dct_issued_s, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :gbl_indexYear_im, t('fields.gbl_indexYear_im.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.gbl_indexYear_im.url'), target: '_blank' %>
-                <%= form.text_field :gbl_indexYear_im, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :gbl_dateRange_drsim, t('fields.gbl_dateRange_drsim.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.gbl_dateRange_drsim.url'), target: '_blank' %>
-                <%= form.text_field :gbl_dateRange_drsim, class: 'form-control' %>
-            </div>
+            <% @fields_by_group[:temporal].each do |field| %>
+                <%= render :partial => 'universal_widget', :locals => {"field": field, "form": form} %>
+            <% end %>
             <h3>Spatial</h3>
-            <div class="form-group">
-                <%= form.label :dct_spatial_sm, t('fields.dct_spatial_sm.label'), class: 'suggested' %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_spatial_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_spatial_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :locn_geometry, t('fields.locn_geometry.label'), class: 'suggested' %>
-                <%= link_to raw('Info &nearr;'), t('fields.locn_geometry.url'), target: '_blank' %>
-                <%= form.text_field :locn_geometry, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dcat_bbox, t('fields.dcat_bbox.label'), class: 'suggested' %>
-                <%= link_to raw('Info &nearr;'), t('fields.dcat_bbox.url'), target: '_blank' %>
-                <%= form.text_field :dcat_bbox, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dcat_centroid, t('fields.dcat_centroid.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dcat_centroid.url'), target: '_blank' %>
-                <%= form.text_field :dcat_centroid, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dcat_centroid, t('fields.gbl_georeferenced_b.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.gbl_georeferenced_b.url'), target: '_blank' %>
-                <%= form.check_box :gbl_georeferenced_b %>
-            </div>
+            <% @fields_by_group[:spatial].each do |field| %>
+                <%= render :partial => 'universal_widget', :locals => {"field": field, "form": form} %>
+            <% end %>
             <h3>Relations</h3>
-            <div class="form-group">
-                <%= form.label :dct_relation_sm, t('fields.dct_relation_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_relation_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_relation_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :pcdm_memberOf_sm, t('fields.pcdm_memberOf_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.pcdm_memberOf_sm.url'), target: '_blank' %>
-                <%= form.text_field :pcdm_memberOf_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_isPartOf_sm, t('fields.dct_isPartOf_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_isPartOf_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_isPartOf_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_source_sm, t('fields.dct_source_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_source_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_source_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_isVersionOf_sm, t('fields.dct_isVersionOf_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_isVersionOf_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_isVersionOf_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_replaces_sm, t('fields.dct_replaces_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_replaces_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_replaces_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_isReplacedBy_sm, t('fields.dct_isReplacedBy_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_isReplacedBy_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_isReplacedBy_sm, class: 'form-control' %>
-            </div>
+            <% @fields_by_group[:relations].each do |field| %>
+                <%= render :partial => 'universal_widget', :locals => {"field": field, "form": form} %>
+            <% end %>
             <h3>Rights</h3>
-            <div class="form-group">
-                <%= form.label :dct_rights_sm, t('fields.dct_rights_sm.label'), class: 'suggested' %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_rights_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_rights_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_rightsHolder_sm, t('fields.dct_rightsHolder_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_rightsHolder_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_rightsHolder_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_license_sm, t('fields.dct_license_sm.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_license_sm.url'), target: '_blank' %>
-                <%= form.text_field :dct_license_sm, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :dct_accessRights_s, t('fields.dct_accessRights_s.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_accessRights_s.url'), target: '_blank' %>
-                <%= form.select :dct_accessRights_s, ['Public', 'Restricted'], selected: 'Public', class: 'form-control' %>
-            </div>
+            <% @fields_by_group[:rights].each do |field| %>
+                <%= render :partial => 'universal_widget', :locals => {"field": field, "form": form} %>
+            <% end %>
             <h3>Objects</h3>
-            <div class="form-group">
-                <%= form.label :dct_format_s, t('fields.dct_format_s.label'), class: 'suggested' %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_format_s.url'), target: '_blank' %>
-                <%= form.text_field :dct_format_s, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :gbl_fileSize_s, t('fields.gbl_fileSize_s.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.gbl_fileSize_s.url'), target: '_blank' %>
-                <%= form.text_field :gbl_fileSize_s, class: 'form-control' %>
-            </div>
+            <% @fields_by_group[:object].each do |field| %>
+                <%= render :partial => 'universal_widget', :locals => {"field": field, "form": form} %>
+            <% end %>
             <h3>Links</h3>
-            <div class="form-group">
-                <%= form.label :dct_references_s, t('fields.dct_references_s.label'), class: 'suggested' %>
-                <%= link_to raw('Info &nearr;'), t('fields.dct_references_s.url'), target: '_blank' %>
-                <strong>Not yet implemented</strong> &#128556;
-                <%= form.text_area :dct_references_s, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :gbl_wxsIdentifier_s, t('fields.gbl_wxsIdentifier_s.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.gbl_wxsIdentifier_s.url'), target: '_blank' %>
-                <%= form.text_field :gbl_wxsIdentifier_s, class: 'form-control' %>
-            </div>
+            <% @fields_by_group[:links].each do |field| %>
+                <%= render :partial => 'universal_widget', :locals => {"field": field, "form": form} %>
+            <% end %>
             <h3>Admin</h3>
-            <div class="form-group">
-                <%= form.label :gbl_mdModified_dt, t('fields.gbl_mdModified_dt.label'), class: 'required' %>
-                <%= link_to raw('Info &nearr;'), t('fields.gbl_mdModified_dt.url'), target: '_blank' %>
-                (automatically set)
-            </div>
-            <div class="form-group">
-                <%= form.label :gbl_mdVersion_s, t('fields.gbl_mdVersion_s.label'), class: 'required' %>
-                <%= link_to raw('Info &nearr;'), t('fields.gbl_mdVersion_s.url'), target: '_blank' %>
-                <%= form.select :gbl_mdVersion_s, ['Aardvark'], selected: 'Aardvark', class: 'form-control' %>
-            </div>
-            <div class="form-group">
-                <%= form.label :gbl_suppressed_b, t('fields.gbl_suppressed_b.label') %>
-                <%= link_to raw('Info &nearr;'), t('fields.gbl_suppressed_b.url'), target: '_blank' %>
-                <%= form.check_box :gbl_suppressed_b %>
-            </div>
+            <% @fields_by_group[:admin].each do |field| %>
+                <%= render :partial => 'universal_widget', :locals => {"field": field, "form": form} %>
+            <% end %>
             <div class="form-group">
                 <%= form.submit class: 'form-control btn-primary' %>
             </div>

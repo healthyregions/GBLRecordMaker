@@ -1,3 +1,49 @@
+require('json')
+
+def get_field_map
+  content = File.read(Rails.root.join "config", "aardvark_fields.json")
+  return JSON.parse(content)
+end
+
+# Load the field info from the Aardvark fields json file,
+# preparing them to be translated into form inputs
+def get_field_list(group)
+  field_defs = Array(field_defs)
+  field_map = get_field_map
+  field_map.each do |key, value|
+    if group == nil || value['display_group'] == group
+      # pull the key into a new slug property
+      value['slug'] = key
+      # transform the "id" field so it doesn't conflict with ActiveRecord id field
+      if value['uri'] == 'id' then value['uri'] = 'gbl_id' end
+      # generate a nice display value from label plus extra info
+      value['display_label'] = value['label']
+      if value['obligation'] != "optional" then value['display_label'] << " (#{value['obligation'][0].upcase})" end
+      if value['multiple'] == true then value['display_label'] << " + " end
+      field_defs << value
+    end
+  end
+  return field_defs
+end
+
+# Sort all fields into a hash by display group
+def get_fields_by_group
+  out_hash = {
+    :identifiers => get_field_list("Identifiers"),
+    :descriptive => get_field_list("Descriptive"),
+    :credits => get_field_list("Credits"),
+    :categories => get_field_list("Categories"),
+    :temporal => get_field_list("Temporal"),
+    :spatial => get_field_list("Spatial"),
+    :relations => get_field_list("Relations"),
+    :rights => get_field_list("Rights"),
+    :object => get_field_list("Object"),
+    :links => get_field_list("Links"),
+    :admin => get_field_list("Admin"),
+  }
+  return out_hash
+end
+
 class RecordsController < ApplicationController
   def index
     @records = Record.all
@@ -17,10 +63,12 @@ class RecordsController < ApplicationController
   end
 
   def edit
+    @fields_by_group = get_fields_by_group
     @record = Record.find(params[:id])
   end
 
   def create
+    @fields_by_group = get_fields_by_group
     record = Record.new(record_params)
     record.save
     redirect_to root_path
@@ -41,6 +89,7 @@ class RecordsController < ApplicationController
   private
   
   def record_params
+    puts params
     params.require(:record)
       .permit(
         :dct_title_s,
@@ -101,5 +150,6 @@ class RecordsController < ApplicationController
       .transform_values {|v| v == "[]" ? nil : v}
       # .transform_values {|v| v.class == Array ? v.join("|") : v }
       # .reject{ |k, v| v == ""}
+
   end
 end

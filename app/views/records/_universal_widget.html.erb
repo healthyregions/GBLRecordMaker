@@ -1,0 +1,17 @@
+<div class="form-group">
+    <%= form.label field["uri"], field["display_label"], class: field["obligation"] %>
+    <%= link_to raw('Info &nearr;'), 'https://opengeometadata.org/ogm-aardvark/#'+field["slug"], target: '_blank' %>
+    <% if field["data_type"] == "string" %>
+        <% if field["controlled"] == true %>
+            <% if field["multiple"] == true %>
+                <%= form.select field["uri"], field["controlled_options"], {}, { :multiple => true, :size => 5, class: 'form-control' } %>
+            <% else %>
+                <%= form.select field["uri"], field["controlled_options"], class: 'form-control' %>
+            <% end %>
+        <% else %>
+            <%= form.text_field field["uri"], class: 'form-control' %>
+        <% end %>
+    <% elsif field["data_type"] == "boolean" %>
+        <%= form.check_box field["uri"] %>
+    <% end %>
+</div>
