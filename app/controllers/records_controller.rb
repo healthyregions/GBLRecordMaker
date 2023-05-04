@@ -60,6 +60,7 @@ class RecordsController < ApplicationController
   end
 
   def new
+    @fields_by_group = get_fields_by_group
   end
 
   def edit
@@ -68,7 +69,6 @@ class RecordsController < ApplicationController
   end
 
   def create
-    @fields_by_group = get_fields_by_group
     record = Record.new(record_params)
     record.save
     redirect_to root_path
