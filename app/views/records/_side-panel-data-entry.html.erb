@@ -1,7 +1,7 @@
 <h3>Data Entry Notes</h3>
 <h4>Schema</h4>
 <p>
-These fields are based on the <a href="https://opengeometadata.org/docs/ogm-aardvark">OGM Aardvark Schema</a>. <strong>Most</strong> of the fields in that schema can accept multiple values, indicated here with a + symbol. Use a pipe <code>|</code> to separate multiple values.
+These fields are based on the <a href="https://opengeometadata.org/ogm-aardvark">OGM Aardvark Schema</a>. <strong>Most</strong> of the fields in that schema can accept multiple values, indicated here with a + symbol. Use a pipe <code>|</code> to separate multiple values.
 </p>
 <p><em>
 Some notations added to each field...
@@ -30,6 +30,5 @@ Some notations added to each field...
         </tr>
     </tbody>
 </table>
-<h4>The Id Field</h4>
-<p>This field should only have lowercase letters, numbers, and hyphens. It must be unique across the GeoBlacklight installation (and here). You can overwrite a record in GeoBlacklight by pasting one in from here with the same Id (this is how we can iteratively test different structures).</p>
-<p>We'll figure out exactly how to format it in the future. For now, something like <code>social-vulnerability-index</code> will be fine.</p>
+<h4>Important: The Id Field</h4>
+<p>This field should only have lowercase letters, numbers, and hyphens. It must be unique across the GeoBlacklight installation (and here). You can overwrite a record in GeoBlacklight by pasting one in from here with the same Id (this allows for iterative testing).</p>

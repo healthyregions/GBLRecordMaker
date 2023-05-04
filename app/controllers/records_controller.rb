@@ -41,6 +41,7 @@ def get_fields_by_group
     :links => get_field_list("Links"),
     :admin => get_field_list("Admin"),
   }
+  puts out_hash
   return out_hash
 end
 
@@ -89,7 +90,6 @@ class RecordsController < ApplicationController
   private
   
   def record_params
-    puts params
     params.require(:record)
       .permit(
         :dct_title_s,
@@ -145,11 +145,7 @@ class RecordsController < ApplicationController
         :gbl_mdVersion_s,
         :gbl_suppressed_b,
       )
-      # .reject {|k, v| v == "[]" }
       .transform_values {|v| v == "" ? nil : v}
       .transform_values {|v| v == "[]" ? nil : v}
-      # .transform_values {|v| v.class == Array ? v.join("|") : v }
-      # .reject{ |k, v| v == ""}
-
   end
 end

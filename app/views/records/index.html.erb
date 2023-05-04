@@ -1,16 +1,15 @@
 <div class="main">
   <div class="content" style="width:100%;">
     <h1>Places metadata test area</h1>
-    <p>This app is meant to serve as a light-weight bridge between our draft metadata and a fully functional GeoBlacklight installation.</p>
-    <p>We can create and edit metadata records here, and then paste the automatically generated JSON into <a href="http://3.139.235.189:8983/solr/#/blacklight-core/documents">
-    SOLR</a>, the search backend of GeoBlacklight. Then we can find the record in our <a href="http://3.141.21.37:3000">development GeoBlacklight installation</a> and see what it looks like/how it behaves in the default search interface. This should give us a way to quickly test out different structures for our records.</p>
+    <p>This app is meant to serve as a light-weight bridge between draft <a href="https://opengeometadata.org/ogm-aardvark">OGM Aardvark</a> metadata and a fully functional GeoBlacklight installation.</p>
+    <p>You create and edit metadata records here, and then paste the generated JSON directly into your SOLR installation, the search backend of GeoBlacklight. You can then find the record immediately reflected in your in your GeoBlacklight installation, and see what it looks like/how it behaves in the default search interface.</p>
     <ol>
       <li>Create or edit a record</li>
-      <li>Use <code>Get JSON</code> to get a SOLR document</li>
-      <li>Copy the raw JSON (exact details may depend on your browser).</li>
-      <li>Paste into the <a href="http://3.139.235.189:8983/solr/#/blacklight-core/documents">
-          SOLR backend</a> and click <code>Submit</code></li>
-      <li>Find and view the record in <a href="http://3.141.21.37:3000">GeoBlacklight</a></li>
+      <li>Use <code>Get SOLR</code> to get a SOLR document in JSON</li>
+      <li>Copy the raw JSON (exact details may depend on your browser)</li>
+      <li>Go to your SOLR backend (e.g. 
+      http://your-domain:8983/solr/#/blacklight-core/documents), paste in the JSON content and click <code>Submit</code></li>
+      <li>Find and view the record in GeoBlacklight</li>
     </ol>
     <%= link_to raw('Create new record &rarr;'), new_record_path %>
     <% if @records.present? %>
